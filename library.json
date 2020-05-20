@@ -1,0 +1,49 @@
+{
+    "name": "wolfSSL",
+    "frameworks": "espidf",
+    "platforms": "espressif32",
+    "dependencies": [
+        {
+            "name": "http-parser"
+        }
+    ],
+    "build": {
+        "flags": [
+            "-DWOLFSSL_ESPWROOM32",
+            "-DESP_IDF",
+            "-DWOLFSSL_USER_SETTINGS",
+            "-DWOLFCRYPT_HAVE_SRP",
+            "-DWOLFSSL_SHA512",
+            "-DWOLFSSL_BASE64_ENCODE",
+            "-DNO_MD5",
+            "-DNO_SHA",
+            "-DHAVE_HKDF",
+            "-DHAVE_CHACHA",
+            "-DHAVE_POLY1305",
+            "-DHAVE_ED25519",
+            "-DHAVE_CURVE25519",
+            "-DNO_SESSION_CACHE",
+            "-DRSA_LOW_MEM",
+            "-DGCM_SMALL",
+            "-DUSE_SLOW_SHA512",
+            "-DWOLFCRYPT_ONLY",
+            "-I .",
+            "-I include"
+        ],
+        "includeDir": "wolfssl-4.1.0",
+        "srcDir": "wolfssl-4.1.0",
+        "srcFilter": [
+            "+<wolfcrypt/src/*.c>",
+            "+<wolfcrypt/src/*.cpp>",
+            "+<wolfcrypt/src/memory.c>",
+            "+<wolfcrypt/src/*.i>",
+            "+<src/*.cpp>",
+            "+<src/*.c>",
+            "+<src/*.s>",
+            "+<wolfcrypt/src/port/Espressif>",
+            "-<src/bio.c>",
+            "-<wolfcrypt/src/aes.c>",
+            "-<wolfcrypt/src/aes_asm.s>"
+        ]
+    }
+}
